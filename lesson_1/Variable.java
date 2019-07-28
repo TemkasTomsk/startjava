@@ -1,20 +1,20 @@
 public class Variable {
 	public static void main(String[] args) {
-		byte one = 4;
-		short two = 3000;
-		int three = 50000;
-		long four = 55555;
-		float five = 5.66f;
-		double six = 6.7700707;
-		char seven = 'Z';
-		boolean eight = true;
-		System.out.println(one);
-		System.out.println(two);
-		System.out.println(three);
-		System.out.println(four);
-		System.out.println(five);
-		System.out.println(six);
-		System.out.println(seven);
-		System.out.println(eight);
+		byte cpuCores = 4;
+		short cpuFrequency = 3000;
+		int ssdDisk = 256000;
+		long hardDisk = 1048576;
+		float monitorDiagonal  = 23.5f;
+		double tempCpu = 41.01;
+		char firstLetterNameOwner = 'A';
+		boolean isSoundOn = true;
+		System.out.println("Колличество ядер процессора = " + cpuCores);
+		System.out.println("Частота процессора = " + cpuFrequency + " MHz");
+		System.out.println("Объем SSD диска = " + ssdDisk + " MB");
+		System.out.println("Объем HDD диска = " + hardDisk + " MB");
+		System.out.println("Диагональ монитора = " + monitorDiagonal + " inch");
+		System.out.println("Температура процессора = " + tempCpu + "\u00b0C");
+		System.out.println("Первая буква имени владельца = " + firstLetterNameOwner);
+		System.out.println("Звук включен? " + isSoundOn);
 	}
 }
