@@ -3,20 +3,21 @@ public class Cycle {
 		for(int i = 0; i <= 20; i++) {
 			System.out.println(i);
 		}
-		int i = 6;
-		while(i >= -6) {
-			System.out.println(i);
-			i-=2;
+
+		int counter = 6;
+		while(counter >= -6) {
+			System.out.println(counter);
+			counter -= 2;
 		}
-		int a = 10;
+
+		counter = 10;
 		int sum = 0;
 		do {
-			if(a % 2 == 1) {
-				System.out.println(a);
-				sum = sum + a;
+			if(counter % 2 != 0) {
+				sum += counter;
 			}
-			a++;
-		} while(a < 20);
-		System.out.println("11 + 13 + 15 + 17 +19 = " + sum);
+			counter++;
+		} while(counter < 20);
+		System.out.println("Сумма нечетных чисел от [10,20] = " + sum);
 	}
 }

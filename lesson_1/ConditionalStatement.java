@@ -1,31 +1,33 @@
 public class ConditionalStatement {
 	public static void main(String[] args) {
-		int youAge = 32;
-		if(youAge > 20) {
+		int age = 32;
+		if(age > 20) {
 			System.out.println("Старше");
-		}	
-		boolean youMale = true;
-		if(youMale) {
-			System.out.println("Yes Male");
-		}	
-		boolean youFemale = true;
-		if(youFemale) {
-		 	System.out.println("No Female");	
 		}
-		float youHeight = 1.88f;
-		if(youHeight < 1.80) {
-			System.out.println("Мой рост меньше 1.88");
-		} else {
-			System.out.println("Мой рост больше 1.88");
+
+		boolean isMale = true;
+		if(isMale) {
+			System.out.println("Да, я мужского пола!");
 		}
-		char youFirstLetterNameM = '\u004D';
-		char youFirstLetterNameI = '\u0049';
-		if(youFirstLetterNameM == '\u004D') {
-			System.out.println("No letter M ");
-		} else if(youFirstLetterNameI == '\u0049') {
-			System.out.println("No letter I");
+
+		if(!isMale) {
+		 	System.out.println("Нет, я не женского пола!");	
+		}
+
+		float height = 1.88f;
+		if(height < 1.80) {
+			System.out.println("Мой рост меньше 1.80");
 		} else {
-			System.out.println("My name starts with letter A");
+			System.out.println("Мой рост больше 1.80");
+		}
+
+		char firstLetterName = 'А';
+		if(firstLetterName == 'М') {
+			System.out.println("Нет, не с буквы M ");
+		} else if(firstLetterName == 'И') {
+			System.out.println("Нет, не с буквы И");
+		} else {
+			System.out.println("Мое имя начинается с буквы A");
 		}
 	}
 }
