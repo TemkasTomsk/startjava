@@ -8,6 +8,7 @@ public class Variable {
 		double tempCpu = 41.01;
 		char firstLetterNameOwner = 'A';
 		boolean isSoundOn = true;
+		
 		System.out.println("Колличество ядер процессора = " + cpuCores);
 		System.out.println("Частота процессора = " + cpuFrequency + " MHz");
 		System.out.println("Объем SSD диска = " + ssdDisk + " MB");
