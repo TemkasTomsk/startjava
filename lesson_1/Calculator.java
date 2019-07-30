@@ -25,20 +25,20 @@ public class Calculator {
 		} else if(op == '^') {
 
 			double result = 1;
-			if (y>0) {
-				for (int i=1; i<=y; i++) {
+			if (y > 0) {
+				for (int i = 1; i <= y; i++) {
 					result = result*x;
 				}				
-			} else if (y==0) {
+			} else if (y == 0) {
 				result = 1;
-			} else if (y<0) {
-				for (int i=-1; i>=y; i--) {
+			} else if (y < 0) {
+				for (int i = -1; i >= y; i--) {
 					result = result*x;				
 				}
 				result = 1 / result;
-			}	
-			
-			System.out.println("возведение в степень x ^ y = " + result);	 
+			}
+
+			System.out.println("Возведение в степень x ^ y = " + result);	 
 		}
 	}
 }
