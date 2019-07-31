@@ -1,6 +1,5 @@
 public class Calculator {
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) {		
 		double x = 2;
 		double y = 0;
 		char operation = '^' ;
@@ -18,7 +17,7 @@ public class Calculator {
 		} else if(operation == '^') {
 			double result = 1;
 			for (int i = 1; i <= y; i++) {
-				result = result*x;
+				result *= x;
 			}				
 		System.out.println("Возведение в степень x ^ y = " + result);	 
 		}
