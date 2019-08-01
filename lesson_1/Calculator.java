@@ -1,7 +1,7 @@
 public class Calculator {
 	public static void main(String[] args) {		
-		double x = 2;
-		double y = 0;
+		int x = 2;
+		int y = 1;
 		char operation = '^' ;
 
 		if(operation == '+') {
@@ -15,11 +15,11 @@ public class Calculator {
 		} else if(operation == '%') {
 			System.out.println("Остаток от деления y % x = " + (y % x));
 		} else if(operation == '^') {
-			double result = 1;
+			int result = 1;
 			for (int i = 1; i <= y; i++) {
 				result *= x;
 			}				
-		System.out.println("Возведение в степень x ^ y = " + result);	 
+			System.out.println("Возведение в степень x ^ y = " + result);	 
 		}
 	}
 }
