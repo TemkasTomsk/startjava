@@ -2,12 +2,9 @@ public class GuessNumber {
 	public static void main(String[] args) {
 		int unknownNumber = 22;
 		System.out.println("Загадано число от 0 до 100. Начинайте угадывать");
-		int inputNumber = 25;
-		while(true) {
-			if(inputNumber == unknownNumber) {
-				System.out.println("Число отгадано!");
-				break;
-			} else if(inputNumber > unknownNumber) {
+		int inputNumber = 10;
+		while(inputNumber != unknownNumber) { 
+			if(inputNumber > unknownNumber) {
 				System.out.println("Введенное вами число больше того, что загадал компьютер");
 				inputNumber--;
 			} else {
@@ -15,6 +12,7 @@ public class GuessNumber {
 				inputNumber++;
 			}	
 		}
+		System.out.println("Число отгадано!");
 	}
 }
 
