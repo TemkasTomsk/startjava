@@ -1,28 +1,28 @@
 public class Person {
 	
-		String gender = "Male";
-		String name = "Artem";
-		int height = 188;
-		float weight = 90.3f;
-		int age = 32;
+	String gender = "Male";
+	String name = "Artem";
+	int height = 188;
+	float weight = 90.3f;
+	int age = 32;
 
-		void toWalk()  {
+	void toWalk()  {
 
-		}
-
-		void sit() {
-
-		}
-
-		void run() {
-
-		}
-
-		void speak() {
-
-		}
-
-		void learnJava() {
-
-		}
 	}
+
+	void sit() {
+
+	}
+
+	void run() {
+
+	}
+
+	void speak() {
+
+	}
+
+	void learnJava() {
+
+	}
+}
