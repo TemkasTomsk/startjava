@@ -1,5 +1,5 @@
 public class Person {
-	public static void main(String[] args) {
+	
 		String gender = "Male";
 		String name = "Artem";
 		int height = 188;
@@ -26,4 +26,3 @@ public class Person {
 
 		}
 	}
-}
