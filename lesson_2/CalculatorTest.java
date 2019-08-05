@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class CalculatorTest {	
 	public static void main(String[] args) {			
-			Calculator calculator = new Calculator();
-			Scanner scan = new Scanner(System.in);
-			String next;
+		Calculator calculator = new Calculator();
+		Scanner scan = new Scanner(System.in);
+		String next;
 
 		do {	
 			System.out.println("Введите число x:");
@@ -22,8 +22,6 @@ public class CalculatorTest {
 				System.out.println("Хотите продолжить? [yes/no]: ");
 				next = scan.next();
 			} while (!next.equals ("yes") && !next.equals ("no"));
-
 		} while (next.equals ("yes"));
-		scan.close();
 	}	
 }
