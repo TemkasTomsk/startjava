@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class GuessNumber {
 	Scanner scan = new Scanner(System.in);
-	Player firstPlayer, secondPlayer;	
+	private Player firstPlayer, secondPlayer;	
 
 	public GuessNumber(Player firstPlayer, Player secondPlayer) {
 		this.firstPlayer = firstPlayer;
@@ -25,6 +25,7 @@ public class GuessNumber {
 				System.out.println("Вы выиграли! " + firstPlayer.getName());
 				break;
 			}
+			
 			System.out.println(secondPlayer.getName() + " Введите число:");
 			secondPlayer.setNumber(scan.nextInt());
 			if (secondPlayer.getNumber() < uknownNumber) {
