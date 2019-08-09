@@ -11,7 +11,7 @@ public class GuessNumber {
 	}
 		
 	public void startGame() {	
-		int uknownNumber = (int) (Math.random() * 3);
+		int uknownNumber = (int) (Math.random() * 101);
 		System.out.println("Загадано число от 0 до 100. Начинайте угадывать.");
 
 		do {
