@@ -1,3 +1,5 @@
+package com.startjava.lesson_1.game;
+
 public class GuessNumber {
 	public static void main(String[] args) {
 		int unknownNumber = 22;
