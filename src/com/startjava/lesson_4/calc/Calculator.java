@@ -1,32 +1,19 @@
 package com.startjava.lesson_4.calc;
 
 public class Calculator {
+	private String expression;
 
-	private String expression = "2 * 2";
-
-	public void setExpression(String expression) {
+	public Calculator(String expression) {
 		this.expression = expression;
 	}
 
-	String[] parts = expression.split(" ");
-	private String part1 = parts[0];
-	private String part2 = parts[1];
-	private String part3 = parts[2];
-
-	private int x = Integer.parseInt(part1);
-	private int y = Integer.parseInt(part3);
-	private char operation = part2.charAt(0);
-
 	public void calculate() {
-//		for (int i = 0; i < parts.length; i++ ) {
-//			System.out.println(parts[i]);
-//		}
-//		System.out.print("x = " + x);
-//		System.out.print(" y = " + y);
-//		System.out.println(" operation = " + operation);
-//		System.out.println("выражение равно = " + expression);
+		String[] parts = expression.split(" ");
 
-		switch(operation) {
+		int x = Integer.parseInt(parts[0]);
+		int y = Integer.parseInt(parts[2]);
+
+		switch(parts[1].charAt(0)) {
 			case '+':
 				System.out.println("Сумма чисел x + y = " + (x + y));
 				break;
@@ -40,7 +27,7 @@ public class Calculator {
 				System.out.println("Деление чесел y / x = " + (y / x));
 				break;
 			case '%':
-				System.out.println("Остаток от деления x % y = " + Math.IEEEremainder(x, y));
+				System.out.println("Остаток от деления x % y = " + (x % y));
 				break;
 			case '^':
 				double result;
