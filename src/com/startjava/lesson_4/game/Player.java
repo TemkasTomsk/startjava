@@ -1,9 +1,12 @@
 package com.startjava.lesson_4.game;
 
+import java.util.Arrays;
+
 public class Player {
 
 	private String name;
 	private int[] num = new int[10];
+	private int counts;
 
 	public Player(String name) {
 		this.name = name;
@@ -25,7 +28,15 @@ public class Player {
 		this.num[index] = number;
 	}
 
-	public int[] setNumber() {
-		return this.num;
-	}
+    public int getCounts() {
+        return counts;
+    }
+
+    public void setCounts(int counts) {
+        this.counts = counts;
+    }
+
+    public void fillInputNumbers() {
+        Arrays.fill(num, 0, counts+1, 0 );
+    }
 }
