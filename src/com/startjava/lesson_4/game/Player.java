@@ -4,39 +4,30 @@ import java.util.Arrays;
 
 public class Player {
 
-	private String name;
-	private int[] num = new int[10];
-	private int counts;
+    private String name;
+    private int[] inputNumber = new int[10];
 
-	public Player(String name) {
-		this.name = name;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int[] getNum() {
-		return num;
-	}
-
-	public void setNum(int number, int index) {
-		this.num[index] = number;
-	}
-
-    public int getCounts() {
-        return counts;
+    public Player(String name) {
+        this.name = name;
     }
 
-    public void setCounts(int counts) {
-        this.counts = counts;
+    public String getName() {
+        return name;
     }
 
-    public void fillInputNumbers() {
-        Arrays.fill(num, 0, counts+1, 0 );
+    public void setInputNumber(int index, int number) {
+        this.inputNumber[index - 1] = number;
+    }
+
+    public int getNumber(int attempt) {
+        return inputNumber[attempt -1];
+    }
+
+    public int[] getInputNumber(int attempt) {
+        return Arrays.copyOf(inputNumber, attempt);
+    }
+
+    public void fillInputNumbers(int attempt) {
+        Arrays.fill(inputNumber, 0, attempt - 1, 0);
     }
 }
