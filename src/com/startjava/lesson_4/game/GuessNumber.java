@@ -18,7 +18,7 @@ public class GuessNumber {
     }
 
     private void initGame() {
-        uknownNumber = (int) (Math.random() * 10);
+        uknownNumber = (int) (Math.random() * 100);
         attempt = 1;
         isWin = false;
         winPlayer = null;
@@ -31,7 +31,12 @@ public class GuessNumber {
 
     public void startGame() {
         initGame();
-        while (attempt <= 5 && !isWin) {
+        System.out.println("Ukn " + uknownNumber);
+        System.out.println("Первый игрок ввел числа: " + Arrays.toString(Arrays.copyOf(firstPlayer.getInputNumber(attempt), attempt)));
+        System.out.println("Первый игрок весь массив: " + Arrays.toString(Arrays.copyOf(firstPlayer.getInputNumber(attempt), 10)));
+        System.out.println("Второй игрок ввел числа: " + Arrays.toString(Arrays.copyOf(secondPlayer.getInputNumber(attempt), attempt)));
+        System.out.println("Второй игрок весь массив: " + Arrays.toString(Arrays.copyOf(secondPlayer.getInputNumber(attempt), 10)));
+        while (attempt <= 10 && !isWin) {
             enterNumberPlayer(firstPlayer);
             comparison(firstPlayer);
             if (!isWin) {
@@ -57,13 +62,13 @@ public class GuessNumber {
             winPlayer = player.getName();
             finishGame();
         }
-        if (attempt == 5 && !isWin) {
+        if (attempt == 10 && !isWin) {
             System.out.println("У игрока " + player.getName() + " закончились попытки!");
         }
     }
 
     private void finishGame() {
-        if (attempt <= 5 && winPlayer == firstPlayer.getName()) {
+        if (attempt <= 10 && winPlayer == firstPlayer.getName()) {
             System.out.println("Первый игрок ввел числа: " + Arrays.toString(Arrays.copyOf(firstPlayer.getInputNumber(attempt), attempt)));
             System.out.println("Первый игрок весь массив: " + Arrays.toString(Arrays.copyOf(firstPlayer.getInputNumber(attempt), 10)));
             System.out.println("Второй игрок ввел числа: " + Arrays.toString(Arrays.copyOf(secondPlayer.getInputNumber(attempt), attempt - 1)));
@@ -79,8 +84,13 @@ public class GuessNumber {
             System.out.println("Первый игрок весь массив: " + Arrays.toString(Arrays.copyOf(firstPlayer.getInputNumber(attempt), 10)));
             System.out.println("Второй игрок ввел числа: " + Arrays.toString(Arrays.copyOf(secondPlayer.getInputNumber(attempt), attempt)));
             System.out.println("Второй игрок весь массив: " + Arrays.toString(Arrays.copyOf(secondPlayer.getInputNumber(attempt), 10)));
-            firstPlayer.fillInputNumbers(attempt);
-            secondPlayer.fillInputNumbers(attempt);
+            if (attempt == 1) {
+                firstPlayer.fillInputNumbers(attempt + 1);
+                secondPlayer.fillInputNumbers(attempt + 1);
+            } else {
+                firstPlayer.fillInputNumbers(attempt);
+                secondPlayer.fillInputNumbers(attempt);
+            }
         }
     }
 }
