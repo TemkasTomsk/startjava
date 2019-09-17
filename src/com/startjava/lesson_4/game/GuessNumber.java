@@ -31,11 +31,6 @@ public class GuessNumber {
 
     public void startGame() {
         initGame();
-        System.out.println("Ukn " + uknownNumber);
-        System.out.println("Первый игрок ввел числа: " + Arrays.toString(Arrays.copyOf(firstPlayer.getInputNumber(attempt), attempt)));
-        System.out.println("Первый игрок весь массив: " + Arrays.toString(Arrays.copyOf(firstPlayer.getInputNumber(attempt), 10)));
-        System.out.println("Второй игрок ввел числа: " + Arrays.toString(Arrays.copyOf(secondPlayer.getInputNumber(attempt), attempt)));
-        System.out.println("Второй игрок весь массив: " + Arrays.toString(Arrays.copyOf(secondPlayer.getInputNumber(attempt), 10)));
         while (attempt <= 10 && !isWin) {
             enterNumberPlayer(firstPlayer);
             comparison(firstPlayer);
@@ -70,9 +65,7 @@ public class GuessNumber {
     private void finishGame() {
         if (attempt <= 10 && winPlayer == firstPlayer.getName()) {
             System.out.println("Первый игрок ввел числа: " + Arrays.toString(Arrays.copyOf(firstPlayer.getInputNumber(attempt), attempt)));
-            System.out.println("Первый игрок весь массив: " + Arrays.toString(Arrays.copyOf(firstPlayer.getInputNumber(attempt), 10)));
             System.out.println("Второй игрок ввел числа: " + Arrays.toString(Arrays.copyOf(secondPlayer.getInputNumber(attempt), attempt - 1)));
-            System.out.println("Второй игрок весь массив: " + Arrays.toString(Arrays.copyOf(secondPlayer.getInputNumber(attempt), 10)));
             if (attempt == 1) {
                 firstPlayer.fillInputNumbers(attempt + 1);
             } else {
@@ -81,9 +74,7 @@ public class GuessNumber {
             }
         } else {
             System.out.println("Первый игрок ввел числа: " + Arrays.toString(Arrays.copyOf(firstPlayer.getInputNumber(attempt), attempt)));
-            System.out.println("Первый игрок весь массив: " + Arrays.toString(Arrays.copyOf(firstPlayer.getInputNumber(attempt), 10)));
             System.out.println("Второй игрок ввел числа: " + Arrays.toString(Arrays.copyOf(secondPlayer.getInputNumber(attempt), attempt)));
-            System.out.println("Второй игрок весь массив: " + Arrays.toString(Arrays.copyOf(secondPlayer.getInputNumber(attempt), 10)));
             if (attempt == 1) {
                 firstPlayer.fillInputNumbers(attempt + 1);
                 secondPlayer.fillInputNumbers(attempt + 1);
