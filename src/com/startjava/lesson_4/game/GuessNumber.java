@@ -67,7 +67,7 @@ public class GuessNumber {
     }
 
     private void completeGame(Player player) {
-        if (attempt <= 5 && player == firstPlayer) {
+        if (attempt <= 10 && player == firstPlayer) {
             System.out.println("Первый игрок ввел числа: " + Arrays.toString(Arrays.copyOf(firstPlayer.getCopyInputNumbers(attempt), attempt)));
             System.out.println("Второй игрок ввел числа: " + Arrays.toString(Arrays.copyOf(secondPlayer.getCopyInputNumbers(attempt), attempt - 1)));
         } else {
