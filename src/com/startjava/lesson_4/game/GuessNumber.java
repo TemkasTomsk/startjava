@@ -1,6 +1,5 @@
 package com.startjava.lesson_4.game;
 
-;
 import java.util.Arrays;
 import java.util.Scanner;
 
