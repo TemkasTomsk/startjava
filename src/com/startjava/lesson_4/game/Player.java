@@ -15,15 +15,15 @@ public class Player {
         return name;
     }
 
-    public void setInputNumbers(int index, int number) {
-        this.inputNumbers[index - 1] = number;
+    public void setInputNumber(int index, int number) {
+        inputNumbers[index - 1] = number;
     }
 
-    public int getInputNumbers(int attempt) {
+    public int getInputNumber(int attempt) {
         return inputNumbers[attempt - 1];
     }
 
-    public int[] getCopyInputNumbers(int attempt) {
+    public int[] getAllNumbers(int attempt) {
         return Arrays.copyOf(inputNumbers, attempt);
     }
 
