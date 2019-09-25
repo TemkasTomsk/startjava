@@ -9,7 +9,6 @@ public class GuessNumber {
     private Player firstPlayer, secondPlayer;
     private int uknownNumber;
     private int attempt;
-    private boolean isWin;
 
     public GuessNumber(Player firstPlayer, Player secondPlayer) {
         this.firstPlayer = firstPlayer;
@@ -19,37 +18,36 @@ public class GuessNumber {
     public void startGame() {
         initGame();
         for (attempt = 1; attempt <= 10; attempt++) {
-            makeMove(firstPlayer);
-            outLastAttempt(firstPlayer);
-            if (isWin) {
+            if (makeMove(firstPlayer)) {
                 completeGame(firstPlayer);
                 fillInputNumbers(firstPlayer);
                 break;
+            } else {
+                outLastAttempt(firstPlayer);
             }
-            makeMove(secondPlayer);
-            outLastAttempt(secondPlayer);
-            if (isWin) {
+            if (makeMove(secondPlayer)) {
                 completeGame(secondPlayer);
                 fillInputNumbers(secondPlayer);
                 break;
+            } else {
+                outLastAttempt(secondPlayer);
             }
         }
-        if (!isWin) {
+        if (attempt > 10) {
             attempt--;
-            outInputNumber();
-            fillInputNumbers();
+            completeGame(secondPlayer);
+            fillInputNumbers(secondPlayer);
         }
     }
 
     private void initGame() {
         uknownNumber = (int) (Math.random() * 101);
-        isWin = false;
         System.out.println("Number = " + uknownNumber);
     }
 
-    private void makeMove(Player player) {
+    private boolean makeMove(Player player) {
         enterNumber(player);
-        compareNumber(player);
+        return compareNumber(player);
     }
 
     private void enterNumber(Player player) {
@@ -57,15 +55,16 @@ public class GuessNumber {
         player.setInputNumber(attempt, scan.nextInt());
     }
 
-    private void compareNumber(Player player) {
+    private boolean compareNumber(Player player) {
         if (player.getInputNumber(attempt) > uknownNumber) {
             System.out.println("Введенное вами число больше того, что загадал компьютер, введите снова: ");
         } else if (player.getInputNumber(attempt) < uknownNumber) {
             System.out.println("Введенное вами число меньше того, что загадал компьютер, введите снова: ");
         } else {
             System.out.println("Игрок " + player.getName() + " угадал число " + uknownNumber + " с " + attempt + " попытки");
-            isWin = true;
+            return true;
         }
+        return false;
     }
 
     private void completeGame(Player player) {
@@ -80,14 +79,9 @@ public class GuessNumber {
     }
 
     private void outLastAttempt(Player player) {
-        if (attempt == 10 && !isWin) {
+        if (attempt == 10) {
             System.out.println("У игрока " + player.getName() + " закончились попытки!");
         }
-    }
-
-    private void outInputNumber() {
-        System.out.println("Первый игрок ввел числа: " + Arrays.toString(Arrays.copyOf(firstPlayer.getAllNumbers(attempt), attempt)));
-        System.out.println("Второй игрок ввел числа: " + Arrays.toString(Arrays.copyOf(secondPlayer.getAllNumbers(attempt), attempt)));
     }
 
     private void fillInputNumbers(Player player) {
@@ -98,10 +92,5 @@ public class GuessNumber {
             firstPlayer.fillInputNumbers(attempt);
             secondPlayer.fillInputNumbers(attempt);
         }
-    }
-
-    private void fillInputNumbers() {
-        firstPlayer.fillInputNumbers(attempt);
-        secondPlayer.fillInputNumbers(attempt);
     }
 }
