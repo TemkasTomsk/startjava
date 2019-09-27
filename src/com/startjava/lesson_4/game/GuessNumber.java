@@ -19,28 +19,29 @@ public class GuessNumber {
         initGame();
         for (attempt = 1; attempt <= 10; attempt++) {
             if (makeMove(firstPlayer)) {
-                completeGame(firstPlayer);
+                displayPlayerAttempts(firstPlayer);
                 fillInputNumbers(firstPlayer);
                 break;
             } else {
-                outLastAttempt(firstPlayer);
+                checkOutLastAttempt(firstPlayer);
             }
             if (makeMove(secondPlayer)) {
-                completeGame(secondPlayer);
+                displayPlayerAttempts(secondPlayer);
                 fillInputNumbers(secondPlayer);
                 break;
             } else {
-                outLastAttempt(secondPlayer);
+                checkOutLastAttempt(secondPlayer);
             }
         }
         if (attempt > 10) {
             attempt--;
-            completeGame(secondPlayer);
+            displayPlayerAttempts(secondPlayer);
             fillInputNumbers(secondPlayer);
         }
     }
 
     private void initGame() {
+        attempt = 0;
         uknownNumber = (int) (Math.random() * 101);
         System.out.println("Number = " + uknownNumber);
     }
@@ -67,7 +68,7 @@ public class GuessNumber {
         return false;
     }
 
-    private void completeGame(Player player) {
+    private void displayPlayerAttempts(Player player) {
         if (player == firstPlayer) {
             System.out.println("Первый игрок ввел числа: " + Arrays.toString(Arrays.copyOf(firstPlayer.getAllNumbers(attempt), attempt)));
             System.out.println("Второй игрок ввел числа: " + Arrays.toString(Arrays.copyOf(secondPlayer.getAllNumbers(attempt), attempt - 1)));
@@ -75,10 +76,9 @@ public class GuessNumber {
             System.out.println("Первый игрок ввел числа: " + Arrays.toString(Arrays.copyOf(firstPlayer.getAllNumbers(attempt), attempt)));
             System.out.println("Второй игрок ввел числа: " + Arrays.toString(Arrays.copyOf(secondPlayer.getAllNumbers(attempt), attempt)));
         }
-        fillInputNumbers(player);
     }
 
-    private void outLastAttempt(Player player) {
+    private void checkOutLastAttempt(Player player) {
         if (attempt == 10) {
             System.out.println("У игрока " + player.getName() + " закончились попытки!");
         }
